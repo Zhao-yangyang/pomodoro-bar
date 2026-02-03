@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <title>Pomodoro Bar Icon</title>
+  <circle cx="256" cy="272" r="180" stroke="#fff" stroke-width="32" />
+  <rect x="236" y="52" width="40" height="68" rx="12" fill="#fff" />
+  <path d="M256 170 L256 300 L344 334" stroke="#fff" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="256" cy="272" r="16" fill="#fff" />
+</svg>

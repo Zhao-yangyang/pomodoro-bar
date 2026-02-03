@@ -1,18 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Newsreader } from "next/font/google";
 import "./globals.css";
-
-const bodyFont = Newsreader({
-  variable: "--font-body-face",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
-const displayFont = Fraunces({
-  variable: "--font-display-face",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Pomodoro Bar",
@@ -26,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body
-        className={`${bodyFont.variable} ${displayFont.variable} antialiased`}
-      >
+      <body className="antialiased">
         {children}
       </body>
     </html>

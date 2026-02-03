@@ -51,6 +51,7 @@ PRs should include:
 - Multi-monitor positioning: if a window needs anchoring near the tray, use tray rect center with `monitor_from_point`, then clamp to that monitor's `work_area`.
 - Tray setup: enable `tauri` `tray-icon` feature; keep tray icon in state to prevent it from dropping.
 - Tray icon color: macOS 若要保持白色图标，设置 `icon_as_template(false)`（模板图标会被系统染色）。
+- Tray title width: 使用 Unicode 数学等宽数字（U+1D7F6..U+1D7FF）格式化时间，避免数字宽度抖动；不要用全角数字（间距过大）。
 - macOS menu bar mode: set `ActivationPolicy::Accessory` and `set_dock_visibility(false)` in `setup`.
 - Window config defaults: `visible: false`, `skipTaskbar: true`; if `transparent: true`, consider enabling `macosPrivateApi`.
 - Dev command: use `beforeDevCommand` `bun dev -- --hostname 127.0.0.1` to avoid bind permission issues.

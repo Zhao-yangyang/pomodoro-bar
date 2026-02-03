@@ -107,6 +107,26 @@ fn format_remaining(ms: u64) -> String {
   format!("{:02}:{:02}", minutes, seconds)
 }
 
+fn format_tray_title(ms: u64) -> String {
+  let time = format_remaining(ms);
+  time
+    .chars()
+    .map(|ch| match ch {
+      '0' => '\u{1D7F6}',
+      '1' => '\u{1D7F7}',
+      '2' => '\u{1D7F8}',
+      '3' => '\u{1D7F9}',
+      '4' => '\u{1D7FA}',
+      '5' => '\u{1D7FB}',
+      '6' => '\u{1D7FC}',
+      '7' => '\u{1D7FD}',
+      '8' => '\u{1D7FE}',
+      '9' => '\u{1D7FF}',
+      other => other,
+    })
+    .collect()
+}
+
 fn format_minutes_value(label: &str, minutes: u64) -> String {
   format!("{}: {} min", label, minutes)
 }
@@ -150,12 +170,12 @@ fn update_menu(app: &tauri::AppHandle, snapshot: &TimerState) {
   let _ = menu_state
     .cycles_value_item
     .set_text(format_cycles_value(prefs.cycles));
-  let title = format_remaining(snapshot.remaining_ms);
+  let title = format_tray_title(snapshot.remaining_ms);
   let _ = app.state::<TrayState>().0.set_title(Some(title));
 }
 
 fn update_tray_title(app: &tauri::AppHandle, snapshot: &TimerState) {
-  let title = format_remaining(snapshot.remaining_ms);
+  let title = format_tray_title(snapshot.remaining_ms);
   let _ = app.state::<TrayState>().0.set_title(Some(title));
 }
 
